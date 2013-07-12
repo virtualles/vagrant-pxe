@@ -3,11 +3,15 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
+BOX_NAME = ENV['BOX_NAME'] || "precise64"
+BOX_URI = ENV['BOX_URI'] || "http://files.vagrantup.com/precise64.box"
+BOX_HOSTNAME = "vagrant-pxe"
+
 Vagrant.configure("2") do |config|
   
-  config.vm.box = "base"
-  config.vm.box_url = "http://files.vagrantup.com/precise64.box"
-  config.vm.hostname = "vagrant-pxe"
+  config.vm.box = BOX_NAME
+  config.vm.box_url = BOX_URI
+  config.vm.hostname = BOX_HOSTNAME
   
   config.vm.synced_folder "/tmp", "/vagrant_data"
  
